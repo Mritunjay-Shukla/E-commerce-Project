@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>LOGIN</title>
+        <style>
+           body{
+                background-image: url(https://www.globalblue.com/business/images/article926851.ece/BINARY/TFS_Article_2019_970x643.jpg);
+                background-repeat: no-repeat;
+  background-size: 100% 100%;
+                margin: 0px;
+            }
+            header{
+                text-align: center;
+            
+            }
+            #form-data{
+                padding: 22px;
+                background-color: whitesmoke;
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 3px;
+                color: white;
+            }
+            #submit-button{
+                padding: 4% 40.1%;
+                background-color: #278ea5;
+                margin-top: 30px;
+            }
+            #reset-button{
+                padding: 4% 40.8%;
+                background-color:#278ea5;
+            }
+            .details{
+                padding: 2% 27%;
+            }
+            #text-area{
+                width: 98%;
+                height: 5%;
+                resize: vertical;
+            }
+            #feature{
+                padding-top: 2%;
+                padding-bottom: 2%;
+                padding-right: 67%;
+            }
+            #role{
+                padding-top: 2%;
+                padding-bottom: 2%;
+                padding-right: 65%;
+            }
+            form>p{
+                color: rgb(209, 4, 4);
+                font-weight: 900;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div id="form-data">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.errors}}
+                <p>First Name</p>
+                {{form.first_name}}
+                <p>Last Name</p>
+                {{form.last_name}}
+                <p>Username</p>
+                {{form.username}}
+                <p>Password</p>
+                {{form.password1}}
+                <p>Confirm Password</p>
+                {{form.password2}}
+                <p>Email</p>
+                {{form.email}}
+                <input id="submit-button" type="submit" href="" value="Register" style="color: white; margin-top: 20px;"><br>
+            </form>
+            </div>
+    </body>
+</html>
