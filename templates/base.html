@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <style>
+            *
+{
+    margin:0;
+    padding: 0;
+}
+
+body
+{
+background-color: f1f3f4;
+font-family: sans-serif;
+}
+
+.top-nav-bar{
+    height: 57px;
+    top: 0;
+    position: sticky;
+    background: #ffffff;
+    margin-bottom: 20px;
+    border-bottom: 3px solid orange;
+    z-index: 2;
+}
+.logo{
+    height: 40px;
+    margin: 5px 10px
+}
+.form-control{
+    margin-top: 10px;
+    margin-left: 30px;
+    border: 1px solid orange !important;
+    border-top-left-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    box-shadow: none !important;
+}
+.input-group-text{
+    background: orange !important;
+    border: 1px solid orange !important;
+    margin: 8.5px 10px 3px 0 !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-top-right-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+    cursor: pointer;
+}
+.search-box{
+    display: inline-flex;
+    width: 60%;
+}
+.fa-search{
+    color: #ffffff;
+}
+
+.menu-bar
+{
+    width: 40%;
+    height: 57px;
+    float: right;
+}
+.menu-bar ul
+{
+    display: inline-flex;
+    float: right;
+}
+.menu-bar ul li
+{
+    border-left: 1px solid #fff;
+    list-style-type: none;
+    padding: 15px 35px;
+    text-align: center;
+    background-color: orange;
+    cursor: pointer;
+    
+}
+
+/* nav bar responsive */
+@media only screen and (max-width: 980px)
+{
+    .top-nav-bar
+    {
+        height: 118px;
+        border-bottom: 0;
+    }
+    .search-box
+    {
+        width: 100%;
+    }
+    .menu-bar
+    {
+        width: 100%;
+    }
+    .menu-bar ul
+    {
+        margin: 10px 0;
+        width: 100%;
+    }
+    .menu-bar ul li
+    {
+        height: 57px;
+        width: 100%;
+    } 
+}
+
+.side-menu{
+    height: 79%;
+    width: 15%;
+    font-size: 14px;
+    float: left;
+    z-index: 2;
+    background-color: #dddddd;
+}
+.side-menu ul{
+    margin-left: 10px; 
+}
+.side-menu ul li{
+    list-style-type: none;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.side-menu ul li:hover{
+    color: orange;
+}
+.side-menu ul li ul{
+    display: none;
+    z-index: 10;
+    top: 77px;
+}
+.side-menu ul li:hover ul{
+    display: block;
+    height: 400px;
+    margin-left: 14%;
+    padding: 0 100px 10px 10px;
+    position:fixed;
+    background: #ececec;
+    box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.5);
+}
+.fa-angle-right{
+    margin-top: 4px;
+    margin-right: 8px;
+    float: right;
+}
+#menu-btn,#close-btn {
+    font-size: 30px;
+    margin: 10px;
+    color: orange;
+    display: none;
+
+}
+@media only screen and (max-width: 980px)
+{
+    .side-menu
+    {
+        width: 34%;
+        z-index: 20;
+        top: 133px;
+        position: fixed;
+        font-size: 12px;  
+        display: none;
+        background: #f1f3f4;
+        display: none;
+    }
+    .side-menu ul li ul
+    {
+        top: 133px;
+    }
+    .side-menu ul li:hover ul
+    {
+        margin-left: 31%;
+    }
+    #menu-btn
+    {
+        display: block;
+    }
+}
+/*-----slider css----------***/
+.slider{
+    width: 80%;
+    margin-left: 15%;
+    padding: 0 10px;
+
+}
+.carousel{
+    box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.5);
+}
+/* .carousel:hover {
+    transform: scale(1.1);
+} */
+.carousel-inner{
+    z-index: 1 !important;
+}
+@media only screen and (max-width: 980px)
+{
+    .slider
+    {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/*feature-categries*/
+.feature-categries{
+    margin: 50px 0;
+}
+.feature-categries img {
+    width: 100%;
+    padding: 20px 0;
+    transition: 1s;
+    cursor: pointer;
+}
+.feature-categries img:hover{
+transform: scale(1.1);
+}
+
+/*------- tittle-----------*/
+.tittle-box{
+    background: orange;
+    color: #fff;
+    width: 180px;
+    padding: 4px 10px;
+    height: 40px;
+    margin-bottom: 30px;
+    display: flex;
+}
+.tittle-box h2{
+    font-size: 25px;
+}
+.tittle-box::after{
+    content: '';
+    border-top: 40px solid orange;
+    border-right: 50px solid transparent;
+    position: absolute;
+    display: flex;
+    margin-top: -4px;
+    margin-left: 170px;
+}
+
+/*product-top css*/
+.product-top img
+{
+    width: 100%;
+}
+.overlay-right
+{
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 10%;
+    margin-left: 0;
+    width: 70px;
+}
+.overlay-right .fa
+{
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    height: 35px;
+    width: 35px;
+    font-size: 20px;
+    padding: 7px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.overlay-right .btn-secondary
+{
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.product-top:hover .overlay-right
+{
+    opacity: 1;
+    margin-left: 5%;
+    transition: 0.5s;
+}
+
+
+/*--------------Product-bottom-CSS---------------*/
+
+.product-bottom .fa
+{
+    color: orange;
+    font-size: 10px;
+}
+.product-bottom h3
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+.product-bottom h5
+{
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+.new-products
+{
+    margin: 50px 0;
+}
+
+/* website-feature */
+.website-features
+{
+   margin: 60px 0;
+}
+
+.website-features img
+{
+    width: 20%;
+}
+.feature-text
+{
+    margin-top: 10px;
+    float: right;
+    width: 80%;
+    padding-left: 20px;
+}
+.feature-box
+{
+    padding-top: 20px;
+}
+
+.footer
+{
+    margin-top: 50px;
+    background: #000;
+    color: #fff;
+}
+.footer h1
+{
+    font-size: 15px;
+    margin: 25px 0;
+}
+.footer p
+{
+    font-size: 12px;
+}
+.copyright
+{
+    margin-bottom: -80px;
+    text-align: center;
+    font-size: 15px;
+    padding-bottom: 20px;
+}
+.fa-heart-o
+{
+    color: red;
+    font-size: 15px;
+}
+.footer hr
+{
+    margin-top: 10px;
+    background-color: #ccc;
+}
+.footer-image img
+{
+    width: 150px;
+}
+.footer .row .fa
+{
+    padding-right: 20px;
+    font-size: 15px;
+}
+
+/*----------------single-product---------------*/
+.single-product
+{
+    margin-top: 70px;
+}
+.new-arrival
+{
+    background: green;
+    width: 50px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.col-md-7 h2
+{
+    color: #555;
+}
+.single-product .fa
+{
+    color: orange;
+}
+.single-product .price
+{
+    color: orange;
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+.single-product input
+{
+    border: 1px solid #ccc;
+    font-weight: bold;
+    height: 33px;
+    text-align: center;
+    width: 30px;
+}
+
+.single-product .btn-primary
+{
+    background: orange !important;
+    color: #fff;
+    font-size: 15px;
+    margin-left: 20px;
+    border: none;
+    box-shadow: none !important;
+}
+/*--------------product-description---------------*/
+.product-description h6
+{
+    margin-top: 50px;
+    color: orange;
+}
+.product-description p
+{
+    margin-top: 30px;
+}
+.product-description hr
+{
+    margin-bottom: 50px;
+}
+
+
+
+
+
+
+
+
+        </style>
+    <title>Mstore</title>
+</head>
+<body>
+    
+    <div class="top-nav-bar">
+        <div class="search-box">
+            {% if user.is_authenticated %}
+                {% if user.pic %}
+                   <img src="{{ user.pic.url }}" class="logo">
+                   <a href="">{{ user.username }} </a>
+                {% else %}
+                    <img src="https://image.shutterstock.com/image-vector/original-product-golden-badge-100-600w-408613573.jpg" class="logo">
+                   <a href="">{{ user.username }} </a>
+                {% endif %}
+            {% else %}
+                  <img src="https://image.shutterstock.com/image-vector/original-product-golden-badge-100-600w-408613573.jpg" class="logo">
+            {% endif %}
+
+        </div>
+        
+        <!--menu bar-->
+        <div class="menu-bar">
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a href="viewcart">cart</a></li>
+                <li><a href="">Wishlist</a></li>
+                <li><a href="logout">Logout</a></li>
+                {% else %}
+                <li><a href="">cart</a></li>
+                <li><a href="account/register">Signup</a></li>
+                <li><a href="login">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+     {% block content %}
+
+     {% endblock %}
+   
+   <!-- website feature section -->
+
+   <section class="website-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 feature-box">
+                <img src="https://image.shutterstock.com/image-vector/original-product-golden-badge-100-600w-408613573.jpg">
+                <div class="feature-text">
+                    <p><b>100% Original items </b>are available at company</p>
+                </div>
+            </div>
+            <div class="col-md-3 feature-box">
+                <img src="https://image.shutterstock.com/image-vector/exchange-convert-icon-arrow-trade-600w-390656542.jpg">
+                <div class="feature-text">
+                    <p><b>Return within 30 days </b>of receiving your order.</p>
+                </div>
+            </div>
+            <div class="col-md-3 feature-box">
+                <img src="https://image.shutterstock.com/image-vector/fast-shipping-delivery-truck-icon-260nw-1719637780.jpg">
+                <div class="feature-text">
+                    <p><b>Get free delivery for every</b>order on more than price.</p>
+                </div>
+            </div>
+            <div class="col-md-3 feature-box">
+                <img src="https://image.shutterstock.com/image-vector/hand-holding-credit-card-icon-600w-257236705.jpg">
+                <div class="feature-text">
+                    <p><b>Pay Online through multiple </b>options (card/Net banking)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   </section>
+    <!-- footer -->
+    <section class="footer">
+        <div class="container tex-center">
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>Useful Links</h1>
+                    <p>Privacy Policy</p>
+                    <p>Terms of Use</p>
+                    <p>Return Policy</p>
+                    <p>Discount Coupons</p>
+                </div>
+                <div class="col-md-3">
+                    <h1>Company</h1>
+                    <p>About Us</p>
+                    <p>Contact Us</p>
+                    <p>Career</p>
+                    <p>Affiliate</p>
+                </div>
+                <div class="col-md-3">
+                    <h1>Follow Us On</h1>
+                    <p><i class="fab fa-facebook"></i> Facebook</p>
+                    <p><i class="fab fa-youtube"></i> YouTube</p>
+                    <p><i class="fab fa-linkedin"></i> Linkedin</p>
+                    <p><i class="fab fa-twitter-square"></i> Twitter</p>
+                </div>
+                <div class="col-md-3 footer-image">
+                    <h1>Download App</h1>
+                    <img src="images/app-logo.png">
+                </div>
+            </div>
+            <hr>
+            
+        </div>
+    </section>
+
+   <script>
+    function openmenu()
+    {
+        document.getElementById("side-menu").style.display="block";
+        document.getElementById("menu-btn").style.display = "none";
+        document.getElementById("close-btn").style.display = "block";
+    }
+     function closemenu() {
+            document.getElementById("side-menu").style.display = "none";
+            document.getElementById("menu-btn").style.display = "block";
+            document.getElementById("close-btn").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
